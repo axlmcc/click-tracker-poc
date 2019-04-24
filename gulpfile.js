@@ -1,26 +1,22 @@
-var gulp = require("gulp"),
-  sass = require("gulp-sass"),
-  postcss = require("gulp-postcss"),
-  autoprefixer = require("autoprefixer"),
-  cssnano = require("cssnano"),
-  sourcemaps = require("gulp-sourcemaps"),
-  browserSync = require("browser-sync").create(),
-  babel = require("gulp-babel"),
-  plumber = require("gulp-plumber"),
-  concat = require("gulp-concat"),
-  jsConfig = require("./src/config");
-
-// A simple task to reload the page
-function reload(done) {
-  browserSync.reload();
-  done();
-}
-
+/** Requirements */
+const gulp = require("gulp");
+const sass = require("gulp-sass");
+const postcss = require("gulp-postcss");
+const autoprefixer = require("autoprefixer");
+const cssnano = require("cssnano");
+const sourcemaps = require("gulp-sourcemaps");
+const browserSync = require("browser-sync").create();
+const babel = require("gulp-babel");
+const plumber = require("gulp-plumber");
+const concat = require("gulp-concat");
+const jsConfig = require("./src/config");
+const del = require('del');
+const uglify = require('gulp-uglify');
 const srcDir = './src';
 const tmpDir = './tmp';
 const destDir = './src/js';
 
-var config = {
+const config = {
   styles: {
     // by using styles/**/*.sass we're telling gulp to check all folders for any sass file
     src: "src/scss/*.scss",
@@ -35,6 +31,14 @@ var config = {
     src: "src/components/*.js"
   }
 };
+
+// A simple task to reload the page
+function reload(done) {
+  browserSync.reload();
+  done();
+}
+
+// A task to handle compiling styles to css from scss
 function style() {
   return (
     gulp
@@ -52,6 +56,7 @@ function style() {
       .pipe(browserSync.stream())
   );
 }
+
 function jsDeps(done) {
   // Loop through the JS Config array and create a Gulp task for
   // each object.
@@ -121,6 +126,8 @@ function jsBuild(done) {
               }]
             ]
           }))
+          // minify the self-authored bundle
+          .pipe(uglify())
           .pipe(gulp.dest(tmpDir))
       );
     }

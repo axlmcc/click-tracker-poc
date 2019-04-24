@@ -3,6 +3,6 @@ class Logger {
     this.gather_list = gather_list;
   }
   print(data) {
-    console.log('test');
+    console.log('tests');
   }
 }

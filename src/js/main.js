@@ -6,42 +6,4 @@ class MyLib {
     console.log('MyLib');
   }
 }
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-var Foo =
-/*#__PURE__*/
-function () {
-  function Foo() {
-    _classCallCheck(this, Foo);
-  }
-
-  _createClass(Foo, [{
-    key: "log",
-    value: function log(msg) {
-      console.log(msg);
-    }
-  }]);
-
-  return Foo;
-}();
-
-var Bar =
-/*#__PURE__*/
-function () {
-  function Bar() {
-    _classCallCheck(this, Bar);
-  }
-
-  _createClass(Bar, [{
-    key: "print",
-    value: function print(msg) {
-      document.write(msg);
-    }
-  }]);
-
-  return Bar;
-}();
+function _classCallCheck(e,n){if(!(e instanceof n))throw new TypeError("Cannot call a class as a function")}function _defineProperties(e,n){for(var t=0;t<n.length;t++){var r=n[t];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,r.key,r)}}function _createClass(e,n,t){return n&&_defineProperties(e.prototype,n),t&&_defineProperties(e,t),e}var Foo=function(){function e(){_classCallCheck(this,e)}return _createClass(e,[{key:"log",value:function(e){console.log(e)}}]),e}(),Bar=function(){function e(){_classCallCheck(this,e)}return _createClass(e,[{key:"print",value:function(e){document.write(e)}}]),e}(),Logger=function(){function n(){var e=0<arguments.length&&void 0!==arguments[0]?arguments[0]:["timestamp","page_url","href"];_classCallCheck(this,n),this.gather_list=e}return _createClass(n,[{key:"print",value:function(e){console.log("tests")}}]),n}();

@@ -26,13 +26,14 @@ module.exports = [
     ],
     files: [
       'components/foo',
-      'components/bar'
+      'components/bar',
+      'components/Logger'
     ]
   },
   {
     name: 'lodash',
     deps: [
-      '~lodash/lodash'
+      '~lodash/lodash.min'
     ]
   }
 ]
