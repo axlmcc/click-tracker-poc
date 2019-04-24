@@ -174,7 +174,7 @@ function watch() {
 // We don't have to expose the reload function
 // It's currently only useful in other functions
 // Don't forget to expose the task!
-exports.watch = watch
+exports.watch = watch;
 
 // Expose the task by exporting it
 // This allows you to run it from the commandline using
