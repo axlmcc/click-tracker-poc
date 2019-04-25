@@ -20,8 +20,13 @@
 module.exports = [
   {
     name: 'main',
+    deps: [
+      '~platform/platform',
+      '~lodash/lodash.min'
+    ],
     files: [
-      'components/Logger'
+      'components/Logger',
+      'components/TrackClicks'
     ]
   }
   // {
