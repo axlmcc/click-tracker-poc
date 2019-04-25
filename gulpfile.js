@@ -175,7 +175,7 @@ function watch() {
   });
   gulp.watch(config.styles.src, style);
   gulp.watch(config.html.src, reload);
-  gulp.watch(config.js_src.src, gulp.series(gulp.parallel(jsDeps, jsBuild), jsConcat));
+  gulp.watch(config.js_src.src, gulp.series(gulp.parallel(jsDeps, jsBuild), jsConcat, reload));
 }
 
 // We don't have to expose the reload function
