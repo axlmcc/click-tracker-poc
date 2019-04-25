@@ -3,7 +3,12 @@ class Logger {
     const {
       monitor_selector = '.track-clicks',
       print_target = '#console',
-      report_type = 'print',
+      report_method = 'print',
+      axios_config = {
+        baseURL: this.getBaseURL(),
+        timeout: 1000
+      },
+      api_path = '/',
       gather_list = [
         'timestamp',
         'platform',
@@ -15,7 +20,9 @@ class Logger {
     } = options || {};
     this.monitor_selector = monitor_selector;
     this.print_target = print_target;
-    this.report_type = report_type;
+    this.report_method = report_method;
+    this.axios_config = axios_config;
+    this.api_path = api_path;
     this.gather_list = gather_list;
   }
   addEventListeners() {
@@ -34,9 +41,9 @@ class Logger {
     // this.log_data(element, this.gather_list);
     let click_data = this.getData(element);
 
-    if (this.report_type = 'print') {
+    if (this.report_method === 'print') {
       this.print(click_data);
-    } else if (this.report_type = 'post') {
+    } else if (this.report_method === 'post') {
       this.postData(click_data);
     }
 
@@ -70,9 +77,17 @@ class Logger {
     const data_package = _.zipObject(this.gather_list, data);
     return data_package;
   }
+  getBaseURL() {
+    var loc = window.location;
+    return `${loc.protocol}//${loc.hostname}${loc.port ? ':' + loc.port : ''}/`;
+  }
   print(data) {
     let dom_console = document.querySelector(this.print_target);
     dom_console.innerHTML = JSON.stringify(data, null, 2);
     Prism.highlightElement(dom_console);
+  }
+  postData(data) {
+    var instance = axios.create(this.axios_config);
+    instance.post(this.api_path, data);
   }
 }
