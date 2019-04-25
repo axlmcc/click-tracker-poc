@@ -20,20 +20,23 @@
 module.exports = [
   {
     name: 'main',
-    deps: [
-      '~jquery/dist/jquery.min',
-      'vendor/my-lib'
-    ],
     files: [
-      'components/foo',
-      'components/bar',
       'components/Logger'
     ]
-  },
-  {
-    name: 'lodash',
-    deps: [
-      '~lodash/lodash.min'
-    ]
   }
+  // {
+  //   name: 'main',
+  //   deps: [
+  //     '~jquery/dist/jquery.min'
+  //   ],
+  //   files: [
+  //     'components/Logger',
+  //   ]
+  // }
+  // ,{
+  //   name: 'lodash',
+  //   deps: [
+  //     '~lodash/lodash.min'
+  //   ]
+  // }
 ]
