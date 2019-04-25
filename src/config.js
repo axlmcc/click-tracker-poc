@@ -22,22 +22,15 @@ module.exports = [
     name: 'main',
     deps: [
       '~platform/platform',
-      '~lodash/lodash.min'
+      '~lodash/lodash.min',
+      '~axios/dist/axios.min'
     ],
     files: [
       'components/Logger',
       'components/TrackClicks'
     ]
   }
-  // {
-  //   name: 'main',
-  //   deps: [
-  //     '~jquery/dist/jquery.min'
-  //   ],
-  //   files: [
-  //     'components/Logger',
-  //   ]
-  // }
+  // Creating other bundles
   // ,{
   //   name: 'lodash',
   //   deps: [
